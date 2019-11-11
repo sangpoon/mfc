@@ -1,0 +1,53 @@
+1. Install CLion 
+//시라이온 설치
+2. Install Arduino before setting project
+//프로젝트 세팅 전 아두이노 설치
+3. Use a tool chain and take a link
+//아두이노 안에있는 툴 체인 사용 및 링크 걸기
+4. Make new project
+//새로운 프로젝트 만들기
+5. Open the CLion and take a link to terminal
+//시라이온을 열고 터미널에 링크 걸기
+6. Enter this code on CLion
+//시라이온에 다음 코드를 입력
+#include "Common.inc.h"
+#include <util/delay.h>
+tool_Blink=false;
+void Init(){
+Set_Output_B5;
+}
+void Do_Process(){
+if(_Blink)
+-Blink=false;
+else
+_Blink=true;
+PORTB_5W(_Blink);
+_delay_ms(100);
+}
+int main(){
+Init();
+while(1){
+Do_Process();
+}
+}
+---------------------------
+cmake_minimum-required(VERSION 3.15)
+Include(TESuit/TEInclude.cmake)
+
+Set_Target(atmega328p)
+Set_TargetFreq(16000000)
+Set_JointInterface(arduino)
+Set_JointPort(/dev/ttyACM0)
+Set_Project(TESuit_Test)
+
+Init_TE()
+Prebuild_TE()
+
+project(${Project_Name} ${Language})
+
+7. Connect arduino to computer, then check a arduino
+//아두이노를 컴퓨터와 연결하고 아두이노를 체크
+8. Input code and compile
+//코드 입력 및 실행
+9.End
+//끝
